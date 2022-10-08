@@ -1,7 +1,6 @@
 package com.hello.core.order;
 
 import com.hello.core.discount.DisCountPolicy;
-import com.hello.core.discount.FixDiscountPolicy;
 import com.hello.core.member.Member;
 import com.hello.core.member.MemberRepository;
 import com.hello.core.member.MemoryMemberRepository;
@@ -9,7 +8,7 @@ import com.hello.core.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DisCountPolicy disCountPolicy = new FixDiscountPolicy();
+    private DisCountPolicy disCountPolicy ;
 
 
     @Override
