@@ -7,8 +7,13 @@ import com.hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private DisCountPolicy disCountPolicy ;
+    private final MemberRepository memberRepository;
+    private final DisCountPolicy disCountPolicy ;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DisCountPolicy disCountPolicy) {
+        this.memberRepository = memberRepository;
+        this.disCountPolicy = disCountPolicy;
+    }
 
 
     @Override
