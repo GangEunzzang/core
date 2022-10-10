@@ -10,6 +10,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class ApplicationContextExtendsFindTest {
@@ -33,6 +35,20 @@ public class ApplicationContextExtendsFindTest {
     void 특정하위타입으로_조회() {
         RateDiscountPolicy rateDiscountPolicy = ac.getBean(RateDiscountPolicy.class);
         assertThat(rateDiscountPolicy).isInstanceOf(RateDiscountPolicy.class);
+    }
+
+    @Test
+    void 부모타입으로_모두조회하기() {
+        Map<String, DisCountPolicy> beansOfType = ac.getBeansOfType(DisCountPolicy.class);
+        assertThat(beansOfType.size()).isEqualTo(2);
+    }
+
+    @Test
+    void 부모타입으로_모두조회하기_Object() {
+        Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
+        for (String key : beansOfType.keySet()) {
+            System.out.println("key = " + key + "value = " + beansOfType.get(key));
+        }
     }
 
 
