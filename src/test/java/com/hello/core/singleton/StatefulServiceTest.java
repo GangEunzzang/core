@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ScopeMetadata;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +25,7 @@ class StatefulServiceTest {
         //ThreadA: 사용자 주문 금액 조회
         int price = statefulService1.getPrice();
         System.out.println("price = " + price);
-
+        ScopeMetadata.class;
         Assertions.assertThat(statefulService1.getPrice()).isEqualTo(20000);
     }
 
