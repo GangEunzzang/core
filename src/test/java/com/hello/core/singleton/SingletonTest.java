@@ -2,6 +2,7 @@ package com.hello.core.singleton;
 
 import com.hello.core.AppConfig;
 import com.hello.core.member.MemberService;
+import com.hello.core.member.Singleton;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -39,6 +40,20 @@ public class SingletonTest {
         MemberService memberService2 = ac.getBean("memberService", MemberService.class);
 
         assertThat(memberService1).isSameAs(memberService2);
+
+    }
+
+    @Test
+    public void  test() throws Exception {
+
+        Singleton instance1 = Singleton.getInstance();
+
+        System.out.println(instance1.test);
+
+        instance1.test = 1;
+        Singleton instance2 = Singleton.getInstance();
+
+        System.out.println(instance2.test);
 
     }
 

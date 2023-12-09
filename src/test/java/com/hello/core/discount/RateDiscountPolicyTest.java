@@ -13,7 +13,7 @@ class RateDiscountPolicyTest {
     RateDiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     @Test
-    public void  VIP_10프로_할인() throws Exception {
+    void  VIP_10프로_할인() throws Exception {
 
         //given
         Member member = new Member(1L, "memberVIP", Grade.VIP);
@@ -27,7 +27,7 @@ class RateDiscountPolicyTest {
 
 
     @Test
-    public void VIP_아니면_할인적용이_안됨 () throws Exception {
+    void VIP_아니면_할인적용이_안됨 () throws Exception {
 
         //given
         Member member = new Member(2L, "memberVIP", Grade.BASIC);

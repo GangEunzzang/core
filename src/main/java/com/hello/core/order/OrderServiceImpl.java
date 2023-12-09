@@ -4,12 +4,16 @@ import com.hello.core.discount.DisCountPolicy;
 import com.hello.core.member.Member;
 import com.hello.core.member.MemberRepository;
 import com.hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
-    private final DisCountPolicy disCountPolicy ;
+    private final DisCountPolicy disCountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DisCountPolicy disCountPolicy) {
         this.memberRepository = memberRepository;
         this.disCountPolicy = disCountPolicy;
